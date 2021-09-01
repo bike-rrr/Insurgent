@@ -1,0 +1,16 @@
+{
+  "name": "insurgent",
+  "version": "1.0.0",
+  "description": "2021 bike search",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "keith",
+  "license": "ISC",
+  "dependencies": {
+    "@vonage/server-sdk": "^2.10.10",
+    "puppeteer": "^10.2.0"
+  }
+}
