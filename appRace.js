@@ -56,7 +56,7 @@ async function main() {
         else if (resp === "too slow") {
             console.log("too slow");
             console.log('--------------------')
-            main();
+            setTimeout(main, 5000);
         }
         // check each size
         else {
@@ -76,7 +76,7 @@ async function main() {
     }).catch((err) => {
         console.log(err);
         console.log("--------------------------------------------------------------------")
-        main();
+        setTimeout(main, 5000);
     })
 }
 // run program
