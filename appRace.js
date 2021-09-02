@@ -2,7 +2,7 @@ const puppeteer = require("puppeteer")
 const vonageFunctions = require('./vonage.js');
 const textMessage = vonageFunctions.textNumber;
 
-const URL = 'https://www.evil-bikes.com/a/bikes/insurgentt';
+const URL = 'https://www.evil-bikes.com/a/bikes/insurgent';
 
 async function scrape() {
 
@@ -11,7 +11,7 @@ async function scrape() {
         const browser = await puppeteer.launch({ headless: true });
         const page = await browser.newPage();
         await page.setDefaultNavigationTimeout(0);
-        await page.goto('https://www.evil-bikes.com/a/bikes/insurgent')
+        await page.goto(URL)
 
         const sizesAvailability = await page.evaluate(() => {
             const sizeList = document.querySelector("#size");
@@ -30,14 +30,14 @@ async function scrape() {
         if (sizesAvailability) {
             resolve(sizesAvailability)
         } else {
-            reject("wrong url boiiis")
+            reject("query FAILED");
         }
     });
 
     const time_Limit = new Promise(resolve => {
         setTimeout(() => {
             resolve('too slow')
-        }, 10000)
+        }, 5000)
     });
 
     return Promise.race([getData, time_Limit]);
@@ -74,7 +74,8 @@ async function main() {
             console.log('--------------------')
         }
     }).catch((err) => {
-        console.log('we fucked ups', err);
+        console.log(err);
+        console.log("--------------------------------------------------------------------")
         main();
     })
 }
