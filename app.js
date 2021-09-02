@@ -57,6 +57,7 @@ async function main() {
             setTimeout(main, 10000);
             console.log('--------------------')
         }
+        textMessage("booya")
     }).catch((err) => console.log(err))
 }
 
