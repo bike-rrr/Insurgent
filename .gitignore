@@ -2,3 +2,4 @@ node_modules/
 
 vonage.js
 .env
+.DS_store
